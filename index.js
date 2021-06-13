@@ -32,9 +32,13 @@ const newUser = new User({userName: 'julie', password: 'chanceiscute'}).save();
 
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
+    console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
     app.use(express.static(__dirname));
     app.use(express.static(path.join(__dirname, 'simpleapp', 'build')));
     app.get('/*', (req, res) => {
       res.sendFile(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
+      console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
     });
   }
+
+  
