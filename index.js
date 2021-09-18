@@ -3,13 +3,17 @@ require('dotenv').config();
 const app = express()
 const port = process.env.PORT
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.get('/chance', (req, res) => {
     res.send('chance is cool')
 })
+
+app.get('/signin', (req, res) => {
+  res.send('chance is cool')
+}) */
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
