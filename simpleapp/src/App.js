@@ -1,18 +1,29 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import "./App.css";
-import Signin from "./components//signin.js";
+import Signin from "./components/signin";
+import Signup from "./components/signup";
+import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
+
 
 function App() {
   return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Signin}/>
+          <Route path="/signup" component={Signup}/>  
+        </Switch>
+      </div>
+    </Router>
 
-    <div className="App">
-      {/* <ul className="navigation-menu">
+    /*<div className="App">
+       <ul className="navigation-menu">
         <li><a href="#root">Home</a></li>
         <li><a href="#projects-container">Projects</a></li>
-  </ul> */}
+  </ul>
       <Signin />
     </div>
-    /*<div className="App">
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
