@@ -7,6 +7,12 @@ const authreducer = (state = { authData: null }, action) => {
 
             //console.log(action?.data)
             return { ...state, authData: action?.data };
+        
+        case LOGOUT:
+            localStorage.clear();
+
+            return { ...state, authData: null };
+
         default:
             return state;
     }

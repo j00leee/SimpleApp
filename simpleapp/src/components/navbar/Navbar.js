@@ -12,20 +12,21 @@ const Navbar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const logout = () => {
-    dispatch({ type: 'LOGOUT '});
+    dispatch({ type: actionType.LOGOUT });
 
-    history.push('/');
+    history.push('/auth');
 
     setUser(null);
   };
 
-  //useEffect(() => {
-   // const token = user?.token;
+    useEffect(() => {
+        const token = user?.token;
 
-   // setUser(JSON.parse(localStorage.getItem('profile')));
- // }, []);
+        setUser(JSON.parse(localStorage.getItem('profile')));
+    }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">

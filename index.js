@@ -3,6 +3,8 @@ require('dotenv').config();
 const app = express()
 const port = process.env.PORT
 
+import userRoutes from './routes/users.js';
+
 /* app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -14,6 +16,8 @@ app.get('/chance', (req, res) => {
 app.get('/signin', (req, res) => {
   res.send('chance is cool')
 }) */
+
+app.use('/user', userRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
