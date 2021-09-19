@@ -1,7 +1,12 @@
+import express from 'express';
+import mongoose from 'mongoose';
+
+
 const express = require('express')
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT
+
 
 import userRouter from './simpleapp/routes/users.js';
 
@@ -29,7 +34,7 @@ mongoose.connect(process.env.MONGO_URI,
 {useNewUrlParser: true, useUnifiedTopology: true}
 );
 
-var nameSchema = new mongoose.Schema({
+/*var nameSchema = new mongoose.Schema({
     userName: String,
     password: String
    });
@@ -47,6 +52,6 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
     });
-  }
+  } */
 
   
