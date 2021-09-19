@@ -10,19 +10,27 @@ import useStyles from './NavbarStyles';
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  console.log(user);
+  const logout = () => {
+    dispatch({ type: 'LOGOUT '});
 
-  useEffect(() => {
-    const token = user?.token;
+    history.push('/');
 
-    setUser(JSON.parse(localStorage.getItem('profile')));
-  }, []);
+    setUser(null);
+  };
+
+  //useEffect(() => {
+   // const token = user?.token;
+
+   // setUser(JSON.parse(localStorage.getItem('profile')));
+ // }, []);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
-        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Memories</Typography>
+        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">PCDemo</Typography>
         {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
       </div>
       <Toolbar className={classes.toolbar}>

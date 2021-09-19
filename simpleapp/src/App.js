@@ -1,20 +1,23 @@
 //import logo from './logo.svg';
 import "./App.css";
 import Auth from "./components/auth";
+import { Container } from '@material-ui/core';
 import Signup from "./components/signup";
-import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <BrowserRouter>
+      <Container maxWidth="lg">
+        <Navbar />
         <Switch>
-          <Route path="/" exact component={Auth}/>
-          <Route path="/signup" component={Signup}/>  
+          <Route path="/" exact component={Auth} />
+          <Route path="/auth" exact component={Auth} />
         </Switch>
-      </div>
-    </Router>
+      </Container>
+    </BrowserRouter>
 
     /*<div className="App">
        <ul className="navigation-menu">
