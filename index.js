@@ -1,5 +1,5 @@
-import express from 'express';
-import mongoose from 'mongoose';
+//import express from 'express';
+//import mongoose from 'mongoose';
 
 
 const express = require('express')
@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT
 
 
-import userRouter from './simpleapp/routes/users.js';
+import userRouter from './routes/users.js';
 
 /* app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -28,7 +28,7 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-var mongoose = require("mongoose");
+//var mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI, 
 {useNewUrlParser: true, useUnifiedTopology: true}
