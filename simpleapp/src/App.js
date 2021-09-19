@@ -1,8 +1,9 @@
 //import logo from './logo.svg';
 import "./App.css";
 import Auth from "./components/auth";
+import Search from "./components/search";
 import { Container } from '@material-ui/core';
-import Signup from "./components/signup";
+//import Signup from "./components/signup";
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Auth} />
           <Route path="/auth" exact component={Auth} />
+          <Route path="/search" exact component={Search} />
         </Switch>
       </Container>
     </BrowserRouter>

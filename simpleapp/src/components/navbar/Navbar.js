@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import decode from 'jwt-decode';
+//import decode from 'jwt-decode';
 
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './NavbarStyles';
@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
     useEffect(() => {
-        const token = user?.token;
+        //const token = user?.token;
 
         setUser(JSON.parse(localStorage.getItem('profile')));
     }, [location]);
@@ -42,7 +42,7 @@ const Navbar = () => {
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>
         ) : (
-          <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+          <Button component={Link} to="/search" variant="contained" color="primary">Sign In</Button>
         )}
       </Toolbar>
     </AppBar>
