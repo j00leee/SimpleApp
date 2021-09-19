@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import "./App.css";
-import Signin from "./components/signin";
+import Auth from "./components/auth";
 import Signup from "./components/signup";
 import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/" exact component={Signin}/>
+          <Route path="/" exact component={Auth}/>
           <Route path="/signup" component={Signup}/>  
         </Switch>
       </div>
