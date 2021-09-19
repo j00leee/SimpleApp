@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import "./App.css";
-import Auth from "./components/auth";
+import Auth from "./components/Auth/auth";
 import Search from "./components/search";
 import { Container } from '@material-ui/core';
 //import Signup from "./components/signup";

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-//import decode from 'jwt-decode';
+import decode from 'jwt-decode';
 
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './NavbarStyles';
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const classes = useStyles();
   const dispatch = useDispatch();
-  const history = useHistory();
   const location = useLocation();
+  const history = useHistory();
+  const classes = useStyles();
 
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
@@ -22,17 +22,22 @@ const Navbar = () => {
     setUser(null);
   };
 
-    useEffect(() => {
-        //const token = user?.token;
+  useEffect(() => {
+    const token = user?.token;
 
-        setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location]);
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
-        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">PCDemo</Typography>
-        {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
+        <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">PCdemo</Typography>
       </div>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
@@ -42,7 +47,7 @@ const Navbar = () => {
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>
         ) : (
-          <Button component={Link} to="/search" variant="contained" color="primary">Sign In</Button>
+          <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
         )}
       </Toolbar>
     </AppBar>

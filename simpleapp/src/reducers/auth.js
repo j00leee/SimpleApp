@@ -1,6 +1,6 @@
 import { AUTH, LOGOUT } from '../constants/actionTypes';
 
-const authreducer = (state = { authData: null }, action) => {
+const authReducer = (state = { authData: null }, action) => {
     switch (action.type) {
         case AUTH:
             localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
@@ -18,4 +18,4 @@ const authreducer = (state = { authData: null }, action) => {
     }
 };
 
-export default authreducer;
+export default authReducer;
