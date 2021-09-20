@@ -2,12 +2,12 @@
   "name": "chanceiscool",
   "version": "1.0.0",
   "description": "",
-  "main": "index.cjs",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "concurrently \"npm run server\" \"cd simpleapp && npm start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix simpleapp&& npm run build --prefix simpleapp",
-    "server": "nodemon index.cjs"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
