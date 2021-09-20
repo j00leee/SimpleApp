@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 
 //const express = require('express');
 
@@ -44,7 +45,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .catch((error) => console.log(error.message));
 
     if (process.env.NODE_ENV === 'production') {
-      const path = require('path');
       console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       app.use(express.static(__dirname));
       app.use(express.static(path.join(__dirname, '../client', 'build')));
