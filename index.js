@@ -55,6 +55,4 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
         console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       });
     }
-
-    console.log(process.env.Test);
 //mongoose.set('useFindAndModify', false);
