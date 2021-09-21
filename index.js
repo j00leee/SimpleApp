@@ -49,7 +49,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     if (process.env.NODE_ENV === 'production') {
       console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       app.use(express.static(__dirname));
-      app.use(express.static(path.join(__dirname, '../client', 'build')));
+      app.use(express.static(path.join(__dirname, 'simpleapp', 'build')));
       app.get('/*', (req, res) => {
         res.sendFile(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
         console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
