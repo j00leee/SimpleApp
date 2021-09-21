@@ -37,13 +37,15 @@ app.use((req, res, next) => {
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
+const __dirname = path.resolve();
+
 //const CONNECTION_URL = 'mongodb+srv://pcdemouser:pcdemouser123@cluster0.suy2y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((error) => console.log(error.message));
-
+    
     if (process.env.NODE_ENV === 'production') {
       console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       app.use(express.static(__dirname));
@@ -52,6 +54,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
         res.sendFile(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
         console.log(path.join(__dirname, 'simpleapp', 'build', 'index.html'));
       });
-    }
+    } 
 
 //mongoose.set('useFindAndModify', false);
