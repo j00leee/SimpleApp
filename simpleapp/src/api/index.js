@@ -1,17 +1,9 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
-const API2 = axios.create({ baseURL: 'https://firstdeployproject.herokuapp.com/' });
+const API = axios.create({ baseURL: 'http://localhost:5000/' });
+
 
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem('profile')) {
-    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-  }
-
-  return req;
-});
-
-API2.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
   }
@@ -28,5 +20,3 @@ API2.interceptors.request.use((req) => {
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
 
-export const signIn2 = (formData) => API2.post('/user/signin2', formData);
-export const signUp2 = (formData) => API2.post('/user/signup2', formData);
