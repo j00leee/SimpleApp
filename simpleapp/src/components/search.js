@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 //import Autocomplete from "react-google-autocomplete";
 import { stockData } from "./Data/data";
-
+import styles from './search.module.css';
 
 
 const Search = () => {
@@ -11,28 +11,6 @@ const Search = () => {
 
     return (
         <>
-  
-      <div className="stock-container">
-        {stockData.filter((data)=> {
-            if(searchTerm == "") {
-                return data
-            } else if (data.company.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return data
-            }
-        }).map((data, key) => {
-          return (
-            <div key={key}>
-              {data.company +
-                " , " +
-                data.ticker +
-                " ," +
-                data.stockPrice +
-                ", " +
-                data.timeElapsed}
-            </div>
-          );
-        })}
-      </div>
       <div>
           <input
            type="text"
@@ -41,6 +19,60 @@ const Search = () => {
                setSearchTerm(event.target.value);
             }}
           />
+      </div>
+      <div className="stock-container">
+        {stockData.filter((data)=> {
+            if(searchTerm === "") {
+                return data
+            } else if (data.address.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return data
+            }
+        }).map((data, key) => {
+          return (
+            /*<div key={key}>
+              {data.company +
+                " , " +
+                data.ticker +
+                " ," +
+                data.stockPrice +
+                ", " +
+                data.timeElapsed}
+              </div> */
+              <>
+              <br/>
+              <div key={key}>{data.address}</div>
+              <br/>
+              <div className={styles.row}>
+                <div className={styles.box}>
+                  <div>Num of Rooms</div>
+                  <br/>
+                  <div key={key}>{data.rooms}</div>
+                </div>
+                <div className={styles.box}>
+                  <div>Num of Bathroom</div>
+                  <br/>
+                  <div key={key}>{data.bathroom}</div>
+                </div>
+                <div className={styles.box}>
+                  <div>Listing By</div>
+                  <br/>
+                  <div key={key}>{data.listing}</div>
+                </div>
+                <div className={styles.box}>
+                  <div>Property Type</div>
+                  <br/>
+                  <div key={key}>{data.type}</div>
+                </div>
+                <div className={styles.box}>
+                  <div>Year Built</div>
+                  <br/>
+                  <div key={key}>{data.year}</div>
+                </div>
+              </div>
+              <br/>
+              </>
+          );
+        })}
       </div>
     </>
     /* <div>
