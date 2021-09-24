@@ -1,10 +1,61 @@
-.row{
+.mainAddress{
+    font-size: 1.2vw;
+}
+
+.outerBox{
+    width: 63vw;
+    border: 1px solid blue;
+    height: 20vw;
+    overflow:auto;
+}
+
+.outerBox .boxTitle{
+    font-size: 1.3vw;
+    margin-left: 1vw;
+}
+
+.outerBox .column{
+    display: flex;
+    flex-direction: column;
+}
+
+.outerBox .column .row{
     display: flex;
     flex-direction: row;
+    margin-left: 1vw;
+    margin-bottom: 2vw;
 }
-.row .box{
+.outerBox .column .row .box{
     margin-right: 5vw;
     border: 1px solid blue;
-    width: 7vw;
-    height: 7vw;
+    width: 15vw;
+    height: 12vw;
+    overflow: auto;
+}
+
+.smallBoxTitle{
+    font-size: 1vw;
+    margin-left: 0.5vw;
+}
+
+.box .columnTag{
+    font-size: 0.8vw;
+    font-weight: 600;
+    margin-left: 0.5vw;
+}
+
+.box .columnTag .dataColumn{
+    font-size: 0.8vw;
+    font-weight: 400;
+}
+
+.box .linkText{
+    font-size: 0.8vw;
+    color: green;
+    margin-left: 0.5vw;
+}
+
+.imgHouse{
+    width: 10vw;
+    height: 10vw;
 }
